@@ -29,7 +29,7 @@ public class ChemicalsInit implements ModInitializer {
         elements.forEach(item ->{
             Registry.register(Registry.ITEM, new Identifier(modid, Elements.turnNumberToName(numberRightNow)), item);
             numberRightNow++;
-            //test
+            //test hi
         });
 
     }
