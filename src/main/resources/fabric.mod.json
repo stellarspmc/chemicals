@@ -16,15 +16,12 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "tcfplayz.chemicals.client.ChemicalsClientInit"
+      "tcfplayz.chemicals.client.ChemicalsClient"
     ],
     "main": [
       "tcfplayz.chemicals.ChemicalsInit"
     ]
   },
-  "mixins": [
-    "chemicals.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=0.12.4",
     "fabric": "*",

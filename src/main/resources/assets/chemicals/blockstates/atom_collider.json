@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "chemicals:block/atom_collider" }
+  }
+}

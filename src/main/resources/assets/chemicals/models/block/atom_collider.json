@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "chemicals:block/atom_collider_front",
+    "north": "chemicals:block/atom_collider_front",
+    "south": "chemicals:block/atom_collider_side",
+    "east": "chemicals:block/atom_collider_side",
+    "west": "chemicals:block/atom_collider_front",
+    "up": "chemicals:block/atom_collider_top",
+    "down": "chemicals:block/atom_collider_bottom"
+  }
+}

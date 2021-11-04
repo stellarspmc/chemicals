@@ -14,7 +14,7 @@ import static tcfplayz.chemicals.ChemicalsInit.elements;
 public abstract class Elements extends Item {
 
     public Elements() {
-        super(new FabricItemSettings().maxCount(127).group(ChemicalsInit.chemical));
+        super(new FabricItemSettings().maxCount(64).group(ChemicalsInit.chemical));
     }
 
     public static String turnNumberToName(int index) {
