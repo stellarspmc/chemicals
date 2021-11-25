@@ -2,18 +2,17 @@ package tcfplayz.chemicals;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-
 import net.minecraft.util.registry.Registry;
 import tcfplayz.chemicals.blocks.AtomCollider;
 import tcfplayz.chemicals.elements.Hydrogen;
 import tcfplayz.chemicals.utils.ChemicalTable;
 import tcfplayz.chemicals.utils.Elements;
+
 
 import java.util.ArrayList;
 
