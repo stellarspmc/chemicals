@@ -7,6 +7,7 @@ import tcfplayz.chemicals.ChemicalsInit;
 import tcfplayz.chemicals.elements.ElementZero;
 import tcfplayz.chemicals.elements.Helium;
 import tcfplayz.chemicals.elements.Hydrogen;
+import tcfplayz.chemicals.elements.Lithium;
 
 import static tcfplayz.chemicals.ChemicalsInit.elements;
 
@@ -34,6 +35,7 @@ public abstract class Elements extends Item {
         elements.add(0, new ElementZero());
         elements.add(1, new Hydrogen());
         elements.add(2, new Helium());
+        elements.add(3, new Lithium());
         //elements.add(index, new Class());
     }
 

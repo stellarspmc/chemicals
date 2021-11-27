@@ -2,5 +2,6 @@
   "itemGroup.chemicals.chemicals": "Chemicals",
   "item.chemicals.elementzero": "?",
   "item.chemicals.hydrogen": "Hydrogen",
-  "item.chemicals.helium": "Helium"
+  "item.chemicals.helium": "Helium",
+  "item.chemicals.lithium": "Lithium"
 }

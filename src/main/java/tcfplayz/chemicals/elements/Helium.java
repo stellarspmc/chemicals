@@ -7,6 +7,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import tcfplayz.chemicals.utils.Elements;
 
+import static tcfplayz.chemicals.utils.Timeout.setTimeout;
+
 public class Helium extends Elements {
     public Helium() {
         super();
@@ -20,12 +22,7 @@ public class Helium extends Elements {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         player.getAbilities().allowFlying = true;
         player.sendAbilitiesUpdate();
-        try {
-            wait(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        player.getAbilities().allowFlying = false;
+        setTimeout(() -> player.getAbilities().allowFlying = false, 10000);
         player.sendAbilitiesUpdate();
         player.getInventory().removeStack(player.getInventory().selectedSlot);
         return TypedActionResult.success(player.getStackInHand(hand));
