@@ -13,8 +13,9 @@ public class Hydrogen extends Elements {
         super();
     }
 
-    public static int getIndex() {
-        return 1;
+    @Override
+    public String getID() {
+        return "hydrogen";
     }
 
     @Override

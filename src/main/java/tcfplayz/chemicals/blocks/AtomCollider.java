@@ -1,6 +1,10 @@
 package tcfplayz.chemicals.blocks;
 
-import tcfplayz.chemicals.utils.ChemicalTable;
+import tcfplayz.chemicals.utils.ChemicalBlocks;
 
-public class AtomCollider extends ChemicalTable {
+public class AtomCollider extends ChemicalBlocks {
+    @Override
+    public String getID() {
+        return "atom_collider";
+    }
 }

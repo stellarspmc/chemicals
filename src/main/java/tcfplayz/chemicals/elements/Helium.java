@@ -14,8 +14,9 @@ public class Helium extends Elements {
         super();
     }
 
-    public static int getIndex() {
-        return 2;
+    @Override
+    public String getID() {
+        return "helium";
     }
 
     @Override

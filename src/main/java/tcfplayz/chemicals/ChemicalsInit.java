@@ -8,18 +8,21 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import org.reflections.Reflections;
+
 import tcfplayz.chemicals.blocks.AtomCollider;
 import tcfplayz.chemicals.elements.Hydrogen;
-import tcfplayz.chemicals.utils.ChemicalTable;
+import tcfplayz.chemicals.utils.ChemicalBlocks;
 import tcfplayz.chemicals.utils.Elements;
 
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class ChemicalsInit implements ModInitializer {
 
-    public static ArrayList<ChemicalTable> tables = new ArrayList<>();
-    public static ArrayList<Elements> elements = new ArrayList<>();
+    public static ArrayList<ChemicalBlocks> tables = new ArrayList<>();
     int numberRightNow;
     public static final String modid = "chemicals";
 
@@ -32,17 +35,25 @@ public class ChemicalsInit implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Elements.initElements();
-        ChemicalTable.initTables();
-        elements.forEach(item ->{
-            Registry.register(Registry.ITEM, new Identifier(modid, Elements.turnNumberToName(numberRightNow)), item);
-            numberRightNow++;
-        });
-        numberRightNow = 0;
+        Reflections reflections = new Reflections("tcfplayz.chemicals");
+        Set<Class<? extends Elements>> classelement = reflections.getSubTypesOf(Elements.class);
+        for (Class<? extends Elements> clazz : classelement) {
+            try {
+                Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+        Set<Class<? extends ChemicalBlocks>> classblock = reflections.getSubTypesOf(ChemicalBlocks.class);
+        for (Class<? extends ChemicalBlocks> clazz : classblock) {
+            try {
+                Registry.register(Registry.BLOCK, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
+                Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), new BlockItem(clazz.getDeclaredConstructor().newInstance(), new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
         tables.forEach(block ->{
-            Registry.register(Registry.BLOCK, new Identifier(modid, ChemicalTable.turnNumberToName(numberRightNow)), block);
-            Registry.register(Registry.ITEM, new Identifier(modid, ChemicalTable.turnNumberToName(numberRightNow)), new BlockItem(block, new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
-            numberRightNow++;
-        });
+            });
     }
 }

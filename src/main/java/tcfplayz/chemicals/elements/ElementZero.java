@@ -6,4 +6,9 @@ public class ElementZero extends Elements {
     public ElementZero() {
         super();
     }
+
+    @Override
+    public String getID() {
+        return "elementzero";
+    }
 }

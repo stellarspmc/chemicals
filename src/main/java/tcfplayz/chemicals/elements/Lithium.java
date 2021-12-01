@@ -7,8 +7,9 @@ public class Lithium extends Elements {
         super();
     }
 
-    public static int getIndex() {
-        return 3;
+    @Override
+    public String getID() {
+        return "lithium";
     }
 
 }
