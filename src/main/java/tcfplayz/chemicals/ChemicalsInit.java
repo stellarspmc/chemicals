@@ -22,8 +22,6 @@ import java.util.Set;
 
 public class ChemicalsInit implements ModInitializer {
 
-    public static ArrayList<ChemicalBlocks> tables = new ArrayList<>();
-    int numberRightNow;
     public static final String modid = "chemicals";
 
     public static final ItemGroup chemical = FabricItemGroupBuilder.build(
@@ -53,7 +51,5 @@ public class ChemicalsInit implements ModInitializer {
                 e.printStackTrace();
             }
         }
-        tables.forEach(block ->{
-            });
     }
 }

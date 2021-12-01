@@ -21,7 +21,7 @@ public class Hydrogen extends Elements {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         world.createExplosion(player, player.getX(), player.getY(), player.getZ(), 15, true, Explosion.DestructionType.DESTROY);
-        player.getInventory().removeStack(player.getInventory().selectedSlot);
+        player.getInventory().removeOne(new ItemStack(this));
         return TypedActionResult.success(player.getStackInHand(hand));
     }
 
