@@ -3,5 +3,6 @@
   "item.chemicals.elementzero": "?",
   "item.chemicals.hydrogen": "Hydrogen",
   "item.chemicals.helium": "Helium",
-  "item.chemicals.lithium": "Lithium"
+  "item.chemicals.lithium": "Lithium",
+  "block.chemicals.bunsen_burner": "Bunsen Burner"
 }
