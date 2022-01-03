@@ -7,12 +7,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import tcfplayz.chemicals.utils.ChemicalBlocks;
+
+import tcfplayz.chemicals.utils.Blocks;
 
 import java.util.stream.Stream;
 
-public class AtomCollider extends ChemicalBlocks {
-    @Override
+public class AtomCollider extends Blocks {
+
+
     public String getID() {
         return "atom_collider";
     }

@@ -1,5 +1,6 @@
 package tcfplayz.chemicals.blocks;
 
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -7,12 +8,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import tcfplayz.chemicals.utils.ChemicalBlocks;
+
+import tcfplayz.chemicals.utils.Blocks;
 
 import java.util.stream.Stream;
 
-public class BunsenBurner extends ChemicalBlocks {
-    @Override
+public class BunsenBurner extends Blocks {
+
     public String getID() {
         return "bunsen_burner";
     }

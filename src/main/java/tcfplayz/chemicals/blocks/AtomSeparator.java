@@ -1,9 +1,14 @@
 package tcfplayz.chemicals.blocks;
 
-import tcfplayz.chemicals.utils.ChemicalBlocks;
 
-public class AtomSeparator extends ChemicalBlocks {
-    @Override
+import net.minecraft.block.Block;
+
+public class AtomSeparator extends Block {
+
+    public AtomSeparator(Settings settings) {
+        super(settings);
+    }
+
     public String getID() {
         return "atom_separator";
     }
