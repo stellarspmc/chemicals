@@ -1,5 +1,4 @@
 {
-	"credit": "Made with Blockbench",
 	"parent": "block/cube",
 	"textures": {
 		"0": "chemicals:block/atom_collider_front",

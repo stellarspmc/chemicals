@@ -16,7 +16,7 @@ public class AtomCollider extends ChemicalBlocks {
     public String getID() {
         return "atom_collider";
     }
-    
+
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
         int f = 16;

@@ -38,6 +38,7 @@ public class ChemicalsInit implements ModInitializer {
         for (Class<? extends Elements> clazz : classelement) {
             try {
                 Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
+                System.out.println("registered" + clazz.getDeclaredConstructor().newInstance().getID());
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
@@ -48,6 +49,7 @@ public class ChemicalsInit implements ModInitializer {
                 Identifier id = new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID());
                 Registry.register(Registry.BLOCK, id, clazz.getDeclaredConstructor().newInstance());
                 Registry.register(Registry.ITEM, id, new BlockItem(clazz.getDeclaredConstructor().newInstance(), new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
+                System.out.println("registered" + clazz.getDeclaredConstructor().newInstance().getID());
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
