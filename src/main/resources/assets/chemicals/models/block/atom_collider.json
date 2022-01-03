@@ -5,6 +5,7 @@
 		"1": "chemicals:block/atom_collider_side",
 		"2": "chemicals:block/atom_collider_top",
 		"3": "chemicals:block/atom_collider_corner",
+		"missing": "chemicals:block/atom_collider_front",
 		"particle": "chemicals:block/atom_collider_front"
 	},
 	"elements": [
