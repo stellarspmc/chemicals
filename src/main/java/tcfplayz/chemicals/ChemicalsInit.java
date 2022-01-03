@@ -45,8 +45,9 @@ public class ChemicalsInit implements ModInitializer {
         Set<Class<? extends ChemicalBlocks>> classblock = reflections.getSubTypesOf(ChemicalBlocks.class);
         for (Class<? extends ChemicalBlocks> clazz : classblock) {
             try {
-                Registry.register(Registry.BLOCK, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
-                Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), new BlockItem(clazz.getDeclaredConstructor().newInstance(), new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
+                Identifier id = new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID());
+                Registry.register(Registry.BLOCK, id, clazz.getDeclaredConstructor().newInstance());
+                Registry.register(Registry.ITEM, id, new BlockItem(clazz.getDeclaredConstructor().newInstance(), new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
