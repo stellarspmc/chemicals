@@ -4,10 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -15,7 +12,6 @@ import net.minecraft.util.registry.Registry;
 
 import org.reflections.Reflections;
 import tcfplayz.chemicals.blocks.AtomCollider;
-import tcfplayz.chemicals.debug.DebugBlock;
 import tcfplayz.chemicals.elements.Hydrogen;
 import tcfplayz.chemicals.utils.Blocks;
 import tcfplayz.chemicals.utils.Elements;
@@ -33,14 +29,9 @@ public class ChemicalsInit implements ModInitializer {
     public static final ItemGroup chemistryitems = FabricItemGroupBuilder.build(
             new Identifier(modid, "chemistryitems"),
             () -> new ItemStack(new AtomCollider()));
-    public static final ItemGroup debug = FabricItemGroupBuilder.build(
-            new Identifier(modid, "debug"),
-            () -> new ItemStack(new DebugBlock()));
 
     @Override
     public void onInitialize() {
-        //Registry.register(Registry.BLOCK, new Identifier(modid, "among_us"), );
-        // Registry.register(Registry.ITEM, new Identifier(modid, "among_us"), new Item.Settings().group(debug)));
         Reflections reflections = new Reflections("tcfplayz.chemicals");
         Set<Class<? extends Elements>> classelement = reflections.getSubTypesOf(Elements.class);
         for (Class<? extends Elements> clazz : classelement) {
