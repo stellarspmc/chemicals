@@ -39,8 +39,8 @@ public class ChemicalsInit implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.BLOCK, new Identifier(modid, "among_us"), new DebugBlock());
-        Registry.register(Registry.ITEM, new Identifier(modid, "among_us"), new BlockItem(new DebugBlock(), new Item.Settings().group(debug)));
+        //Registry.register(Registry.BLOCK, new Identifier(modid, "among_us"), );
+        // Registry.register(Registry.ITEM, new Identifier(modid, "among_us"), new Item.Settings().group(debug)));
         Reflections reflections = new Reflections("tcfplayz.chemicals");
         Set<Class<? extends Elements>> classelement = reflections.getSubTypesOf(Elements.class);
         for (Class<? extends Elements> clazz : classelement) {
@@ -54,10 +54,11 @@ public class ChemicalsInit implements ModInitializer {
         Set<Class<? extends Blocks>> classblock = reflections.getSubTypesOf(Blocks.class);
         for (Class<? extends Blocks> clazz : classblock) {
             try {
-                Identifier id = new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID());
-                Registry.register(Registry.BLOCK, id, clazz.getDeclaredConstructor().newInstance());
-                Registry.register(Registry.ITEM, id, new BlockItem(clazz.getDeclaredConstructor().newInstance(), new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
-                System.out.println("registered " + clazz.getDeclaredConstructor().newInstance().getID());
+                Blocks blocks = clazz.getDeclaredConstructor().newInstance();
+                Identifier id = new Identifier(modid, blocks.getID());
+                Registry.register(Registry.BLOCK, id, blocks);
+                Registry.register(Registry.ITEM, id, new BlockItem(blocks, new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
+                System.out.println("registered " + blocks.getID());
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
