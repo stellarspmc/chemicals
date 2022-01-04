@@ -6,6 +6,7 @@
   "item.chemicals.hydrogen": "Hydrogen",
   "item.chemicals.helium": "Helium",
   "item.chemicals.lithium": "Lithium",
-  "itemGroup.chemicals.chemistryitems": "Chemistry Items"
-
+  "itemGroup.chemicals.chemistryitems": "Chemistry Items",
+  "itemGroup.chemicals.debug": "Debug Use",
+  "block.chemicals.debug_block": "Debug Block"
 }
