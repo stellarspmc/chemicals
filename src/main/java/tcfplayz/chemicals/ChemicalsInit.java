@@ -4,6 +4,10 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -14,8 +18,10 @@ import org.reflections.Reflections;
 import tcfplayz.chemicals.blocks.AtomCollider;
 import tcfplayz.chemicals.elements.Hydrogen;
 import tcfplayz.chemicals.utils.Blocks;
+import tcfplayz.chemicals.utils.BossCreator;
 import tcfplayz.chemicals.utils.Elements;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
@@ -42,6 +48,7 @@ public class ChemicalsInit implements ModInitializer {
                 e.printStackTrace();
             }
         }
+        Reflections reflections2 = new Reflections("tcfplayz.mobs");
         Set<Class<? extends Blocks>> classblock = reflections.getSubTypesOf(Blocks.class);
         for (Class<? extends Blocks> clazz : classblock) {
             try {
@@ -54,5 +61,22 @@ public class ChemicalsInit implements ModInitializer {
                 e.printStackTrace();
             }
         }
+        /* Set<Class<? extends BossCreator>> classblock2 = reflections.getSubTypesOf(BossCreator.class);
+        for (Class<? extends BossCreator> clazz : classblock2) {
+            try {
+                Constructor<? extends BossCreator> entity = clazz.getDeclaredConstructor();
+                BossCreator e = clazz.getDeclaredConstructor().newInstance();
+                final EntityType<BossCreator> CUBE = Registry.register(
+                        Registry.ENTITY_TYPE,
+                        new Identifier("entitytesting", "cube"),
+                        FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, e).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+                );
+                Identifier id = new Identifier(modid, blocks.getID());
+
+                System.out.println("registered " + blocks.getID());
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } */
     }
 }

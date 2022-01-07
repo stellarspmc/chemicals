@@ -1,4 +1,10 @@
 package tcfplayz.chemicals.items;
 
-public class Salt {
+import tcfplayz.chemicals.utils.Solutions;
+
+public class Salt extends Solutions {
+    @Override
+    public String getID() {
+        return "salt";
+    }
 }

@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.tools;
+package tcfplayz.chemicals.tools.diminish;
 
 public class Diminisher {
     // hey players suffer more
