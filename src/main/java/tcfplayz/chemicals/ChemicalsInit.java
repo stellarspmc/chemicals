@@ -13,6 +13,7 @@ import tcfplayz.chemicals.blocks.AtomCollider;
 import tcfplayz.chemicals.elements.Hydrogen;
 import tcfplayz.chemicals.utils.blocks.Blocks;
 import tcfplayz.chemicals.utils.items.Elements;
+import tcfplayz.chemicals.utils.items.Solutions;
 import tcfplayz.chemicals.utils.tools.Tools;
 
 import java.lang.reflect.InvocationTargetException;
@@ -41,8 +42,7 @@ public class ChemicalsInit implements ModInitializer {
                 e.printStackTrace();
             }
         }
-        Reflections reflections2 = new Reflections("tcfplayz.mobs");
-        Set<Class<? extends Blocks>> classblock = reflections2.getSubTypesOf(Blocks.class);
+        Set<Class<? extends Blocks>> classblock = reflections.getSubTypesOf(Blocks.class);
         for (Class<? extends Blocks> clazz : classblock) {
             try {
                 Blocks blocks = clazz.getDeclaredConstructor().newInstance();
@@ -71,15 +71,11 @@ public class ChemicalsInit implements ModInitializer {
                 e.printStackTrace();
             }
         } */
-        Reflections reflections3 = new Reflections("tcfplayz.tools");
-        Set<Class<? extends Tools>> tool = reflections3.getSubTypesOf(Tools.class);
-        for (Class<? extends Tools> clazz : tool) {
+        Set<Class<? extends Solutions>> solution = reflections.getSubTypesOf(Solutions.class);
+        for (Class<? extends Solutions> clazz : solution) {
             try {
-                Tools tools = clazz.getDeclaredConstructor().newInstance();
-                ToolItem pick = new PickaxeItem(tools.INSTANCE, 5f, 5, new Item.Settings().group(ItemGroup.TOOLS));
-                Identifier id = new Identifier(modid, pick.getID());
-                Registry.register(Registry.ITEM, id,
-                System.out.println("registered " + block.getID());
+                Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
+                System.out.println("registered " + clazz.getDeclaredConstructor().newInstance().getID());
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
