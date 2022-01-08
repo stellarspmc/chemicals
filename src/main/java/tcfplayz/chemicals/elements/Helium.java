@@ -5,9 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import tcfplayz.chemicals.utils.Elements;
+import tcfplayz.chemicals.utils.items.Elements;
 
-import static tcfplayz.chemicals.utils.Timeout.setTimeout;
+import static tcfplayz.chemicals.utils.other.Timeout.setTimeout;
 
 public class Helium extends Elements {
     public Helium() {

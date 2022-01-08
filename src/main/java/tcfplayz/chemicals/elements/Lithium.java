@@ -1,6 +1,6 @@
 package tcfplayz.chemicals.elements;
 
-import tcfplayz.chemicals.utils.Elements;
+import tcfplayz.chemicals.utils.items.Elements;
 
 public class Lithium extends Elements {
     public Lithium() {

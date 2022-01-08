@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.utils;
+package tcfplayz.chemicals.utils.items;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;

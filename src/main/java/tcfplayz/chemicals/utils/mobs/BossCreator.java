@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.utils;
+package tcfplayz.chemicals.utils.mobs;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.PathAwareEntity;

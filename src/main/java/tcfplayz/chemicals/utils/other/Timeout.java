@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.utils;
+package tcfplayz.chemicals.utils.other;
 
 public class Timeout {
     public static void setTimeout(Runnable runnable, int delay){

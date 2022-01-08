@@ -4,24 +4,17 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import org.reflections.Reflections;
 import tcfplayz.chemicals.blocks.AtomCollider;
 import tcfplayz.chemicals.elements.Hydrogen;
-import tcfplayz.chemicals.utils.Blocks;
-import tcfplayz.chemicals.utils.BossCreator;
-import tcfplayz.chemicals.utils.Elements;
+import tcfplayz.chemicals.utils.blocks.Blocks;
+import tcfplayz.chemicals.utils.items.Elements;
+import tcfplayz.chemicals.utils.tools.Tools;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
@@ -49,7 +42,7 @@ public class ChemicalsInit implements ModInitializer {
             }
         }
         Reflections reflections2 = new Reflections("tcfplayz.mobs");
-        Set<Class<? extends Blocks>> classblock = reflections.getSubTypesOf(Blocks.class);
+        Set<Class<? extends Blocks>> classblock = reflections2.getSubTypesOf(Blocks.class);
         for (Class<? extends Blocks> clazz : classblock) {
             try {
                 Blocks blocks = clazz.getDeclaredConstructor().newInstance();
@@ -78,5 +71,18 @@ public class ChemicalsInit implements ModInitializer {
                 e.printStackTrace();
             }
         } */
+        Reflections reflections3 = new Reflections("tcfplayz.tools");
+        Set<Class<? extends Tools>> tool = reflections3.getSubTypesOf(Tools.class);
+        for (Class<? extends Tools> clazz : tool) {
+            try {
+                Tools tools = clazz.getDeclaredConstructor().newInstance();
+                ToolItem pick = new PickaxeItem(tools.INSTANCE, 5f, 5, new Item.Settings().group(ItemGroup.TOOLS));
+                Identifier id = new Identifier(modid, pick.getID());
+                Registry.register(Registry.ITEM, id,
+                System.out.println("registered " + block.getID());
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

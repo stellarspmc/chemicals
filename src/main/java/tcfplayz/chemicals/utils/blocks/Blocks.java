@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.utils;
+package tcfplayz.chemicals.utils.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;

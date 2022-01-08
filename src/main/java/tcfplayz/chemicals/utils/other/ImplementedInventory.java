@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.utils;
+package tcfplayz.chemicals.utils.other;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;

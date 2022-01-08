@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.utils;
+package tcfplayz.chemicals.utils.items;
 
 import net.minecraft.item.Item;
 import tcfplayz.chemicals.ChemicalsInit;
