@@ -1,0 +1,10 @@
+{
+  "generator": {
+    "type": "chemicals:bee",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "minecraft:plains"
+    }
+  },
+  "type": "chemicals:void_type"
+}

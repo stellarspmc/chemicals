@@ -4,17 +4,24 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
+import net.kyrptonaught.customportalapi.CustomPortalApiRegistry;
+
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.World;
 import org.reflections.Reflections;
+
 import tcfplayz.chemicals.blocks.AtomCollider;
 import tcfplayz.chemicals.elements.Hydrogen;
+import tcfplayz.chemicals.items.Stocks;
 import tcfplayz.chemicals.utils.blocks.Blocks;
 import tcfplayz.chemicals.utils.items.Elements;
+import tcfplayz.chemicals.utils.items.OtherItems;
 import tcfplayz.chemicals.utils.items.Solutions;
-import tcfplayz.chemicals.utils.tools.Tools;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
@@ -29,9 +36,22 @@ public class ChemicalsInit implements ModInitializer {
     public static final ItemGroup chemistryitems = FabricItemGroupBuilder.build(
             new Identifier(modid, "chemistryitems"),
             () -> new ItemStack(new AtomCollider()));
+    public static final ItemGroup others = FabricItemGroupBuilder.build(
+            new Identifier(modid, "otheritems"),
+            () -> new ItemStack(new Stocks()));
 
     @Override
     public void onInitialize() {
+        // dimensions + portal
+        CustomPortalBuilder.beginPortal()
+                .lightWithWater()
+                .tintColor(193, 199, 26)
+                .frameBlock(net.minecraft.block.Blocks.HONEYCOMB_BLOCK)
+                .onlyLightInOverworld()
+                .returnDim(new Identifier("minecraft", "overworld"), false)
+                .registerPortal();
+
+        // other
         Reflections reflections = new Reflections("tcfplayz.chemicals");
         Set<Class<? extends Elements>> classelement = reflections.getSubTypesOf(Elements.class);
         for (Class<? extends Elements> clazz : classelement) {
@@ -73,6 +93,15 @@ public class ChemicalsInit implements ModInitializer {
         } */
         Set<Class<? extends Solutions>> solution = reflections.getSubTypesOf(Solutions.class);
         for (Class<? extends Solutions> clazz : solution) {
+            try {
+                Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
+                System.out.println("registered " + clazz.getDeclaredConstructor().newInstance().getID());
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+        Set<Class<? extends OtherItems>> items = reflections.getSubTypesOf(OtherItems.class);
+        for (Class<? extends OtherItems> clazz : items) {
             try {
                 Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
                 System.out.println("registered " + clazz.getDeclaredConstructor().newInstance().getID());

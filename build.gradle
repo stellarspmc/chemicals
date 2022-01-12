@@ -8,6 +8,10 @@ group = project.maven_group
 
 repositories {
     mavenCentral()
+    maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
 }
 
 dependencies {
@@ -16,9 +20,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:0.12.8"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.43.1+1.18"
-
+    modImplementation include("io.github.cottonmc:LibGui:5.2.0+1.18")
     implementation 'org.reflections:reflections:0.10.2'
-
 }
 
 processResources {
