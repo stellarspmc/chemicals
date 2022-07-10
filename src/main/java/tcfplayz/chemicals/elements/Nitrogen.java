@@ -2,14 +2,13 @@ package tcfplayz.chemicals.elements;
 
 import tcfplayz.misc.utils.items.Elements;
 
-public class Lithium extends Elements {
-    public Lithium() {
+public class Nitrogen extends Elements {
+    public Nitrogen() {
         super();
     }
 
     @Override
     public String getID() {
-        return "lithium";
+        return "nitrogen";
     }
-
 }

@@ -7,7 +7,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import tcfplayz.chemicals.utils.blocks.Blocks;
+import tcfplayz.misc.utils.blocks.Blocks;
 
 
 public class TableChest extends Blocks {

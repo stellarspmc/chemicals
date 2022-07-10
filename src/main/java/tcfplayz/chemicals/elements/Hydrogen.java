@@ -6,7 +6,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import tcfplayz.chemicals.utils.items.Elements;
+import tcfplayz.misc.utils.items.Elements;
 
 public class Hydrogen extends Elements {
     public Hydrogen() {
