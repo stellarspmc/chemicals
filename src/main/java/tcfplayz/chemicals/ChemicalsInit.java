@@ -11,13 +11,11 @@ import net.minecraft.util.registry.Registry;
 
 import org.reflections.Reflections;
 
-import tcfplayz.chemicals.blocks.AtomCollider;
-import tcfplayz.chemicals.elements.Hydrogen;
-import tcfplayz.chemicals.items.Salt;
-import tcfplayz.chemicals.utils.blocks.Blocks;
-import tcfplayz.chemicals.utils.items.Elements;
-import tcfplayz.chemicals.utils.items.OtherItems;
-import tcfplayz.chemicals.utils.items.Solutions;
+import tcfplayz.chemicals.blocks.*;
+import tcfplayz.chemicals.elements.*;
+import tcfplayz.chemicals.items.salt.Salt;
+import tcfplayz.misc.utils.blocks.Blocks;
+import tcfplayz.misc.utils.items.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;

@@ -2,13 +2,13 @@ package tcfplayz.chemicals.elements;
 
 import tcfplayz.misc.utils.items.Elements;
 
-public class Uranium extends Elements {
-    public Uranium() {
+public class Nitrogen extends Elements {
+    public Nitrogen() {
         super();
     }
 
     @Override
     public String getID() {
-        return "uranium";
+        return "nitrogen";
     }
 }

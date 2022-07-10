@@ -7,8 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-
-import tcfplayz.chemicals.utils.blocks.Blocks;
+import tcfplayz.misc.utils.blocks.Blocks;
 
 import java.util.stream.Stream;
 
