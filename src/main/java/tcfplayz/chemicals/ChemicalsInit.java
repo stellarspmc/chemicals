@@ -4,20 +4,16 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
-import net.kyrptonaught.customportalapi.CustomPortalApiRegistry;
-
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.World;
 import org.reflections.Reflections;
 
 import tcfplayz.chemicals.blocks.AtomCollider;
 import tcfplayz.chemicals.elements.Hydrogen;
-import tcfplayz.chemicals.items.Stocks;
+import tcfplayz.chemicals.items.Salt;
 import tcfplayz.chemicals.utils.blocks.Blocks;
 import tcfplayz.chemicals.utils.items.Elements;
 import tcfplayz.chemicals.utils.items.OtherItems;
@@ -38,7 +34,7 @@ public class ChemicalsInit implements ModInitializer {
             () -> new ItemStack(new AtomCollider()));
     public static final ItemGroup others = FabricItemGroupBuilder.build(
             new Identifier(modid, "otheritems"),
-            () -> new ItemStack(new Stocks()));
+            () -> new ItemStack(new Salt()));
 
     @Override
     public void onInitialize() {
@@ -57,7 +53,6 @@ public class ChemicalsInit implements ModInitializer {
         for (Class<? extends Elements> clazz : classelement) {
             try {
                 Registry.register(Registry.ITEM, new Identifier(modid, clazz.getDeclaredConstructor().newInstance().getID()), clazz.getDeclaredConstructor().newInstance());
-                System.out.println("registered " + clazz.getDeclaredConstructor().newInstance().getID());
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
@@ -69,7 +64,6 @@ public class ChemicalsInit implements ModInitializer {
                 Identifier id = new Identifier(modid, blocks.getID());
                 Registry.register(Registry.BLOCK, id, blocks);
                 Registry.register(Registry.ITEM, id, new BlockItem(blocks, new FabricItemSettings().group(ChemicalsInit.chemistryitems)));
-                System.out.println("registered " + blocks.getID());
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
