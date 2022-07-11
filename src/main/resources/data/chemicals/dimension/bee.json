@@ -1,10 +1,18 @@
 {
+  "type": "minecraft:overworld",
   "generator": {
-    "type": "chemicals:bee",
+    "type": "minecraft:noise",
+    "settings": "minecraft:overworld",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "minecraft:plains"
+      "type": "minecraft:checkerboard",
+      "scale": 20,
+      "biomes": [
+        "minecraft:beach",
+        "minecraft:badlands",
+        "minecraft:deep_dark",
+        "minecraft:ocean",
+        "minecraft:jungle"
+      ]
     }
-  },
-  "type": "chemicals:void_type"
+  }
 }
