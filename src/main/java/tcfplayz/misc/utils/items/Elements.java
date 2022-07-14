@@ -8,7 +8,7 @@ import tcfplayz.chemicals.ChemicalsInit;
 public abstract class Elements extends Item {
 
     public Elements() {
-        super(new FabricItemSettings().maxCount(64).group(ChemicalsInit.chemical));
+        super(new FabricItemSettings().maxCount(64).group(ChemicalsInit.CHEMICALS));
     }
 
     public abstract String getID();

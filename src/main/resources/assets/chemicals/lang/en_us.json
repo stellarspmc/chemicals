@@ -7,7 +7,7 @@
   "item.chemicals.helium": "Helium",
   "item.chemicals.lithium": "Lithium",
   "item.chemicals.salt" : "Salt",
-  "item.chemicals.dhmo": "Dihydrogen Monoxide",
+  "item.chemicals.dihydrogen_monoxide": "Dihydrogen Monoxide",
   "itemGroup.chemicals.otheritems": "Other Items",
   "itemGroup.chemicals.chemistryitems": "Chemistry Items",
   "itemGroup.chemicals.debug": "Debug Use",

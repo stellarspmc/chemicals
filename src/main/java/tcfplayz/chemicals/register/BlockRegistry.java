@@ -6,11 +6,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import tcfplayz.chemicals.ChemicalsInit;
 import tcfplayz.chemicals.blocks.AtomCollider;
-import tcfplayz.chemicals.blocks.AtomSeparator;
 import tcfplayz.chemicals.blocks.BunsenBurner;
 import tcfplayz.misc.utils.blocks.Blocks;
 
-import static tcfplayz.chemicals.ChemicalsInit.modid;
+import static tcfplayz.chemicals.ChemicalsInit.MODID;
 
 public class BlockRegistry {
 
@@ -25,8 +24,8 @@ public class BlockRegistry {
         */
     }
     private void registerBlock(Blocks block) {
-        Registry.register(Registry.BLOCK, new Identifier(modid, block.getID()), block);
-        Registry.register(Registry.ITEM, new Identifier(modid, block.getID()), new BlockItem(block, new FabricItemSettings().group(ChemicalsInit.chemical)));
+        Registry.register(Registry.BLOCK, new Identifier(MODID, block.getID()), block);
+        Registry.register(Registry.ITEM, new Identifier(MODID, block.getID()), new BlockItem(block, new FabricItemSettings().group(ChemicalsInit.CHEMICALS)));
     }
 
 }
