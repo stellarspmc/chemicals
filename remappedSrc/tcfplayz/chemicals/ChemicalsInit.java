@@ -11,8 +11,8 @@ import net.minecraft.util.registry.Registry;
 import org.reflections.Reflections;
 
 import tcfplayz.chemicals.blocks.*;
-import tcfplayz.chemicals.elements.*;
-import tcfplayz.chemicals.items.salt.Salt;
+import tcfplayz.chemicals.items.elements.*;
+import tcfplayz.chemicals.items.molecules.salt.Salt;
 import tcfplayz.misc.utils.blocks.Blocks;
 import tcfplayz.misc.utils.items.*;
 

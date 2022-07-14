@@ -1,31 +1,27 @@
-package tcfplayz.chemicals.elements;
+package tcfplayz.chemicals.items.elements;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 import tcfplayz.misc.utils.items.Elements;
 
-import static tcfplayz.misc.utils.other.Timeout.setTimeout;
-
-public class Helium extends Elements {
-    public Helium() {
+public class Hydrogen extends Elements {
+    public Hydrogen() {
         super();
     }
 
     @Override
     public String getID() {
-        return "helium";
+        return "hydrogen";
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        player.getAbilities().allowFlying = true;
-        player.sendAbilitiesUpdate();
-        setTimeout(() -> player.getAbilities().allowFlying = false, 10000);
-        player.sendAbilitiesUpdate();
-        player.getInventory().removeStack(player.getInventory().selectedSlot);
+        world.createExplosion(player, player.getX(), player.getY(), player.getZ(), 15, true, Explosion.DestructionType.DESTROY);
+        player.getInventory().removeOne(new ItemStack(this));
         return TypedActionResult.success(player.getStackInHand(hand));
     }
 

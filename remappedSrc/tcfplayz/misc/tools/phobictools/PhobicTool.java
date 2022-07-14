@@ -1,6 +1,6 @@
 package tcfplayz.misc.tools.phobictools;
 
-import tcfplayz.chemicals.elements.Hydrogen;
+import tcfplayz.chemicals.items.elements.Hydrogen;
 import tcfplayz.misc.utils.tools.Tools;
 
 public class PhobicTool extends Tools {

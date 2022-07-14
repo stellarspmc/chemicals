@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.elements;
+package tcfplayz.chemicals.items.elements;
 
 import tcfplayz.misc.utils.items.Elements;
 

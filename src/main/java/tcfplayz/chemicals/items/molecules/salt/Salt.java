@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.items.salt;
+package tcfplayz.chemicals.items.molecules.salt;
 
 import tcfplayz.misc.utils.items.Molecules;
 

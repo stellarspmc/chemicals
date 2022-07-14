@@ -1,4 +1,4 @@
-package tcfplayz.chemicals.elements;
+package tcfplayz.chemicals.items.elements;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
