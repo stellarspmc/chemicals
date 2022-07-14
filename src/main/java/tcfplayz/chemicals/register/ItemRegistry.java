@@ -2,6 +2,7 @@ package tcfplayz.chemicals.register;
 
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import tcfplayz.chemicals.items.ItemGroupBeaker;
 import tcfplayz.chemicals.items.elements.*;
 import tcfplayz.chemicals.items.molecules.*;
 import tcfplayz.misc.utils.items.Elements;
@@ -23,6 +24,7 @@ public class ItemRegistry {
         registerElements(new Oxygen());
         registerElements(new Uranium());
         registerMolecules(new DHMO());
+        Registry.register(Registry.ITEM, new Identifier(modid, "igb"), new ItemGroupBeaker());
         /* TODO: implement functions
         registerElements(new Fluorine());
         registerElements(new Neon());
@@ -47,15 +49,15 @@ public class ItemRegistry {
         */
     }
     private void registerElements(Elements element) {
-        net.minecraft.util.registry.Registry.register(Registry.ITEM, new Identifier(modid, element.getID()), element);
+        Registry.register(Registry.ITEM, new Identifier(modid, element.getID()), element);
     }
 
     private void registerOtherItems(MiscItems misc) {
-        net.minecraft.util.registry.Registry.register(Registry.ITEM, new Identifier(modid, misc.getID()), misc);
+        Registry.register(Registry.ITEM, new Identifier(modid, misc.getID()), misc);
     }
 
     private void registerMolecules(Molecules molecules) {
-        net.minecraft.util.registry.Registry.register(Registry.ITEM, new Identifier(modid, molecules.getID()), molecules);
+        Registry.register(Registry.ITEM, new Identifier(modid, molecules.getID()), molecules);
     }
 
 }
